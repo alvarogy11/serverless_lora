@@ -23,6 +23,11 @@ def create_post():
 
     return 'OK'
 
+@app.route('/api/test', methods=['GET'])
+def test():
+    
+    return 'OK'
+
 if __name__ == '__main__':
     app.run(debug=True)
     # Connect to MongoDB
