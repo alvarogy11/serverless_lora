@@ -1,4 +1,5 @@
 from flask import Flask, request, jsonify
+from flask_cors import CORS
 import  pymongo
 from dotenv import load_dotenv
 import os
@@ -8,6 +9,7 @@ load_dotenv()
 mongo_string = os.getenv("MONGO_KEY")
 
 app = Flask(__name__)
+CORS(app) 
 
 # Connect to MongoDB
 
@@ -29,7 +31,6 @@ def test():
     return 'OK'
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run()
     # Connect to MongoDB
-    data = {'hola': 2}
     
