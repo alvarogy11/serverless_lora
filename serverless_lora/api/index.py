@@ -25,6 +25,30 @@ def create_post():
 
     return 'OK'
 
+@app.route('/api/posts2', methods=['POST'])
+def create_post2():
+    
+    data = request.json
+    
+    connection = pymongo.MongoClient(mongo_string, tlsCAFile=certifi.where())
+    db = 'GeoLora'  # Replace 'your_database_name' with your actual database name
+    collection = 'Measures_2'  # Replace 'your_collection_name' with your actual collection name
+    connection[db][collection].insert_one(data)
+
+    return 'OK'
+
+@app.route('/api/pruebas', methods=['POST'])
+def post_pruebas():
+    
+    data = request.json
+    
+    connection = pymongo.MongoClient(mongo_string, tlsCAFile=certifi.where())
+    db = 'GeoLora'  # Replace 'your_database_name' with your actual database name
+    collection = 'pruebas'  # Replace 'your_collection_name' with your actual collection name
+    connection[db][collection].insert_one(data)
+
+    return 'OK'
+
 @app.route('/api/test', methods=['GET'])
 def test():
     
