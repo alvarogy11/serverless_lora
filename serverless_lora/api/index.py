@@ -38,7 +38,7 @@ def create_post2():
     return 'OK'
 
 @app.route('/api/posts3', methods=['POST'])
-def create_post2():
+def create_post3():
     
     data = request.json
     
