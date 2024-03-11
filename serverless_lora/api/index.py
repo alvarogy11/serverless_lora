@@ -37,6 +37,18 @@ def create_post2():
 
     return 'OK'
 
+@app.route('/api/posts3', methods=['POST'])
+def create_post2():
+    
+    data = request.json
+    
+    connection = pymongo.MongoClient(mongo_string, tlsCAFile=certifi.where())
+    db = 'GeoLora'  # Replace 'your_database_name' with your actual database name
+    collection = 'Measures_3'  # Replace 'your_collection_name' with your actual collection name
+    connection[db][collection].insert_one(data)
+
+    return 'OK'
+
 @app.route('/api/pruebas', methods=['POST'])
 def post_pruebas():
     
